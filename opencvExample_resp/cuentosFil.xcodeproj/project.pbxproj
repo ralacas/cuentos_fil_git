@@ -12,6 +12,10 @@
 		259da76c028adaa20996723e102a6ccd /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ce9c7160245b19131dae61282ee6cb53 /* ofxCvColorImage.cpp */; };
 		7829c785a0dd56718cb46bcc3b066ff1 /* ofxCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9a16cbf2e8cfe43af54fe6f55efbf8a4 /* ofxCvHaarFinder.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
+		CC5F4FE215672AEC00004FCE /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5F4FDB15672AEC00004FCE /* tinyxml.cpp */; };
+		CC5F4FE315672AEC00004FCE /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5F4FDD15672AEC00004FCE /* tinyxmlerror.cpp */; };
+		CC5F4FE415672AEC00004FCE /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5F4FDE15672AEC00004FCE /* tinyxmlparser.cpp */; };
+		CC5F4FE515672AEC00004FCE /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5F4FE015672AEC00004FCE /* ofxXmlSettings.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -74,6 +78,13 @@
 		9a048549f08c6dffa79e6def6eeedb50 /* ofxCvGrayscaleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxCvGrayscaleImage.h; path = ../../../addons/ofxOpenCv/src/ofxCvGrayscaleImage.h; sourceTree = SOURCE_ROOT; };
 		9a16cbf2e8cfe43af54fe6f55efbf8a4 /* ofxCvHaarFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxCvHaarFinder.cpp; path = ../../../addons/ofxOpenCv/src/ofxCvHaarFinder.cpp; sourceTree = SOURCE_ROOT; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
+		CC5F4FD915672AEC00004FCE /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
+		CC5F4FDB15672AEC00004FCE /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
+		CC5F4FDC15672AEC00004FCE /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
+		CC5F4FDD15672AEC00004FCE /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
+		CC5F4FDE15672AEC00004FCE /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		CC5F4FE015672AEC00004FCE /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
+		CC5F4FE115672AEC00004FCE /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -133,6 +144,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				CC5F4FD815672AEC00004FCE /* ofxXmlSettings */,
 				d25ed262554e8f281794adead3c706ad /* ofxOpenCv */,
 			);
 			name = addons;
@@ -163,6 +175,36 @@
 				BBAB23BE13894E4700AA2426 /* GLUT.framework */,
 			);
 			name = "3rd party frameworks";
+			sourceTree = "<group>";
+		};
+		CC5F4FD815672AEC00004FCE /* ofxXmlSettings */ = {
+			isa = PBXGroup;
+			children = (
+				CC5F4FD915672AEC00004FCE /* install.xml */,
+				CC5F4FDA15672AEC00004FCE /* libs */,
+				CC5F4FDF15672AEC00004FCE /* src */,
+			);
+			path = ofxXmlSettings;
+			sourceTree = "<group>";
+		};
+		CC5F4FDA15672AEC00004FCE /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				CC5F4FDB15672AEC00004FCE /* tinyxml.cpp */,
+				CC5F4FDC15672AEC00004FCE /* tinyxml.h */,
+				CC5F4FDD15672AEC00004FCE /* tinyxmlerror.cpp */,
+				CC5F4FDE15672AEC00004FCE /* tinyxmlparser.cpp */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		CC5F4FDF15672AEC00004FCE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CC5F4FE015672AEC00004FCE /* ofxXmlSettings.cpp */,
+				CC5F4FE115672AEC00004FCE /* ofxXmlSettings.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		E4328144138ABC890047C5CB /* Products */ = {
@@ -340,6 +382,10 @@
 				dbf87635ae30aae223f0609e6ee16e2f /* ofxCvImage.cpp in Sources */,
 				7829c785a0dd56718cb46bcc3b066ff1 /* ofxCvHaarFinder.cpp in Sources */,
 				0b2e55fee13134ce9b57d3bffd6d5dab /* ofxCvShortImage.cpp in Sources */,
+				CC5F4FE215672AEC00004FCE /* tinyxml.cpp in Sources */,
+				CC5F4FE315672AEC00004FCE /* tinyxmlerror.cpp in Sources */,
+				CC5F4FE415672AEC00004FCE /* tinyxmlparser.cpp in Sources */,
+				CC5F4FE515672AEC00004FCE /* ofxXmlSettings.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

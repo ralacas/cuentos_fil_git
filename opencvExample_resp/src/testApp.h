@@ -4,6 +4,7 @@
 #include <fstream>
 #include "ofMain.h"
 #include "ofxOpenCv.h"
+#include "ofxXmlSettings.h"
 
 #define _USE_LIVE_VIDEO		// uncomment this to use a live camera
 								// otherwise, we'll use a movie file
@@ -23,6 +24,9 @@ class testApp : public ofBaseApp{
 		void mousePressed(int x, int y, int button);
 		void mouseReleased(int x, int y, int button);
 		void windowResized(int w, int h);
+    
+    //<racosta> 18-may-2012 Anexamos codigo para poder controlar el cuento del XML
+        void leerCuentoXml();
 
 
         #ifdef _USE_LIVE_VIDEO
@@ -75,6 +79,9 @@ class testApp : public ofBaseApp{
 
         //variables de archivo con cuento
         ifstream cuentoStream; //declare a file stream
+        
+        //@ralacas <18-may-2012> Aqui agregamos lo respectivo al cuento en XML
+        ofxXmlSettings  cuentosXml;
 
 
         //debug

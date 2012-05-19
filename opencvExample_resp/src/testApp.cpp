@@ -55,8 +55,27 @@ void testApp::setup(){
     /// Inicializacion de las letras
 	numLetrasAbajo = 0;
 
+    
+    //@ralacas 19-may-2012 Agregamos una variable para manipular los cuentos del XML
+    
+    if(cuentosXml.loadFile("cuentos.xml"))
+    {
+        printf("Archivo abierto");
+        string  lineaDelCuento;
+        lineaDelCuento = cuentosXml.getValue("cuentos:frase","");
+        
+        for (int a=0; a<=lineaDelCuento.size(); a++) {
+            Letras[a]=lineaDelCuento[a];
+        }
+    }
+    else
+    {
+        ofLogError("XML file not opened or missing");
+        
+    }
 
     /// LECTURA DE ARCHIVO PARA CUENTO
+    /*
     cuentoStream.open( ofToDataPath("cuento1.txt").c_str() ); //open your text file
     if (cuentoStream==NULL) {
             printf( "Error (NO ABIERTO)\n" );
@@ -68,7 +87,7 @@ void testApp::setup(){
                 Letras[a]=str[a];
         }
 
-    }
+    }*/
 
 
 	/// cuantas letras contiene el primer renglón?
@@ -90,6 +109,8 @@ void testApp::setup(){
 
     ///Prepara Letra para ser un str
     Letra[1] = '\0';
+    
+   
 
 
     DBG_DISPLAY=true;
@@ -174,7 +195,7 @@ void testApp::update(){
 
                         DBG_TOPPERSONAJE=true;
                     }
-                    ofSetColor(20,10,10);
+                    ofSetColor(0x000000);//20,10,10,255);
                     ofRect(personajePosInicialX + i*videoScale - videoScale/2, personajePosInicialY + j*videoScale - videoScale/2, videoScale, videoScale);
                 }
             }
@@ -347,7 +368,7 @@ void testApp::draw(){
 
 			/// ¿hay color? (podría ser r, g o b, todos traen 0 o 255)
 			if (r!=0) {
-                ofSetColor(20,10,10);
+                ofSetColor(0x000000);//20,10,10);
                 ofRect(personajePosInicialX + i*videoScale - videoScale/2, personajePosInicialY + j*videoScale - videoScale/2, videoScale, videoScale);
             }
 		}
@@ -372,7 +393,7 @@ void testApp::draw(){
 
 
         }
-        ofSetColor(40,20,20);
+        ofSetColor(0x000000);//40,20,20);
         Letra[0] = Letras[j];
         BookFont.drawString(Letra, letrasPosInicialX + PosLetrasX[j], letrasPosInicialY + PosLetrasY[j]);
     }
@@ -431,5 +452,11 @@ void testApp::mouseReleased(int x, int y, int button){
 //--------------------------------------------------------------
 void testApp::windowResized(int w, int h){
 
+}
+
+//<racosta> 18-may-2012
+void testApp::leerCuentoXml(){
+    
+    
 }
 
