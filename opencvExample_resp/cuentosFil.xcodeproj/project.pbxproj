@@ -16,6 +16,7 @@
 		CC5F4FE315672AEC00004FCE /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5F4FDD15672AEC00004FCE /* tinyxmlerror.cpp */; };
 		CC5F4FE415672AEC00004FCE /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5F4FDE15672AEC00004FCE /* tinyxmlparser.cpp */; };
 		CC5F4FE515672AEC00004FCE /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC5F4FE015672AEC00004FCE /* ofxXmlSettings.cpp */; };
+		CC713C951568947E00F5173B /* cuentosReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC713C931568947E00F5173B /* cuentosReader.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -85,6 +86,8 @@
 		CC5F4FDE15672AEC00004FCE /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
 		CC5F4FE015672AEC00004FCE /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
 		CC5F4FE115672AEC00004FCE /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
+		CC713C931568947E00F5173B /* cuentosReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cuentosReader.cpp; sourceTree = "<group>"; };
+		CC713C941568947E00F5173B /* cuentosReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cuentosReader.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -243,6 +246,8 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
+				CC713C931568947E00F5173B /* cuentosReader.cpp */,
+				CC713C941568947E00F5173B /* cuentosReader.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -386,6 +391,7 @@
 				CC5F4FE315672AEC00004FCE /* tinyxmlerror.cpp in Sources */,
 				CC5F4FE415672AEC00004FCE /* tinyxmlparser.cpp in Sources */,
 				CC5F4FE515672AEC00004FCE /* ofxXmlSettings.cpp in Sources */,
+				CC713C951568947E00F5173B /* cuentosReader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

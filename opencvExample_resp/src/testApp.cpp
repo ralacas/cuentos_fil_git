@@ -62,7 +62,7 @@ void testApp::setup(){
     {
         printf("Archivo abierto");
         string  lineaDelCuento;
-        lineaDelCuento = cuentosXml.getValue("cuentos:frase","");
+        lineaDelCuento = cuentosXml.getValue("cuentos:frase","",1);
         
         for (int a=0; a<=lineaDelCuento.size(); a++) {
             Letras[a]=lineaDelCuento[a];
@@ -123,6 +123,7 @@ void testApp::setup(){
 void testApp::update(){
 	ofBackground(100,100,100);
 
+    //Esto segun yo es para leer de la camara
     bool bNewFrame = false;
 
 	#ifdef _USE_LIVE_VIDEO
