@@ -155,14 +155,14 @@ void testApp::draw(){
 	//Background gris
 	ofBackground(100,100,100);
 	
-	ofSetColor(0xffffff);
+	ofSetHexColor(0xffffff);
 	if (bimgGris)  //alterna entre imagen gris, procesada, o imagen a color original
 		grayDiff.draw(0, 0, 640, 480);
 	else
 		colorImg.draw(0, 0, 640, 480);
 	
 	//define color para la letra
-    ofSetColor(0xFFFF00);
+    ofSetHexColor(0xFFFF00);
 	//ciclo que recorre letra por letra y la dibuja en la posici—n en la que se encuentra.
     for (int j = 0; j < numLetras; j++)
 	{
