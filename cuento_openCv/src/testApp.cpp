@@ -75,7 +75,7 @@ void testApp::setup(){
              misLetra[j] -> setPosX(posi);
              misLetra[j] -> setPosY(0);
              float randY = rand()%100;
-             misLetra[j] -> setVelY(randY/100+0.2);
+             misLetra[j] -> setVelY(randY/100+2);
              
 			 /*PosLetrasX[j] = posi;  //posici—nX
 			 PosLetrasY[j] = 0;     //posici—nY

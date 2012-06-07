@@ -53,11 +53,11 @@ class testApp : public ofBaseApp{
 	
 		//variables de letras
 		int                 numLetras, numLetrasAbajo;
-		char                Letras[256];
+		//char                Letras[256];
 		char                LetraArr[2];
-		unsigned int        PosLetrasX[100];
-		float               PosLetrasY[100];
-		float               Velocidad[100];
+		//unsigned int        PosLetrasX[100];
+		//float               PosLetrasY[100];
+		//float               Velocidad[100];
 		bool				bimgGris;
         vector<Letra*> misLetra;
 	
