@@ -2,6 +2,10 @@
 
 #include "ofMain.h"
 #include "ofxOpenCv.h"
+#include "Letra.h"
+#include <vector>
+
+using namespace std;
 
 class testApp : public ofBaseApp{
 
@@ -35,7 +39,10 @@ class testApp : public ofBaseApp{
 
 		// Number of columns and rows in our system
 		int cols, rows;
-	
+    
+	//A partir de aqui variables especificas de la aplicacion
+    //Metodo que comienza un nuevo renglon
+    void nuevoRenglon();
 		//Esquina superior izquierda donde comienza a dibujarse la pantalla de cuadritos
 		int posXfinal, posYfinal;
 	
@@ -47,11 +54,12 @@ class testApp : public ofBaseApp{
 		//variables de letras
 		int                 numLetras, numLetrasAbajo;
 		char                Letras[256];
-		char                Letra[2];
+		char                LetraArr[2];
 		unsigned int        PosLetrasX[100];
 		float               PosLetrasY[100];
 		float               Velocidad[100];
 		bool				bimgGris;
+        vector<Letra*> misLetra;
 	
 		char reportStr[1024];
 		char infoArchivoStr[50];

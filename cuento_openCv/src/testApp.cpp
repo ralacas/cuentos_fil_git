@@ -41,34 +41,50 @@ void testApp::setup(){
 		 
 		 string str; //declare a string for storage
 		 getline(cuentoStream, str); //get a line from the file, put it in the string
+         
 		 for (int a=0;a<=str.size();a++)
 		 {
-			 Letras[a]=str[a];
+			 //Letras[a]=str[a];
+             misLetra.push_back(new Letra(str[a]));
 		 }
 
 		 //cuantas letras contiene el primer rengl—n?
-		 numLetras = strlen(Letras);
-	
+         
+		 //numLetras = strlen(Letras);
+         numLetras = misLetra.size();
+         
 		 //ciclo para inicializar la posici—n de cada letra hasta arriba de la pantalla as’ como su velocidad de caida.
+         
 		 int posi = 0;
-		 for (int j = 0; j < numLetras; j++)
+		 for (int j = 0; j < numLetras-1; j++)
 		 {
-			 if (Letras[j-1] == 'i' || Letras[j-1] == 'l' || Letras[j-1] == 'j' )
+             char i = misLetra[j]->retLetra();
+             if(i == 'i'|| i == 'j' || i == 'l'){
+                 posi = posi + 5;
+             }else{
+                 posi = posi+10;
+             }
+			 /*if (Letras[j-1] == 'i' || Letras[j-1] == 'l' || Letras[j-1] == 'j' )
 			 { //estas letras requieren mucho menos espacio, cada letra que les siga debe ir desplazada menos pixeles.
 				 posi = posi + 5;
 			 }
 			 else
 			 {
 				 posi = posi + 10;
-			 }
-			 PosLetrasX[j] = posi;  //posici—nX
+			 }*/
+             misLetra[j] -> setPosX(posi);
+             misLetra[j] -> setPosY(0);
+             float randY = rand()%100;
+             misLetra[j] -> setVelY(randY/100+0.2);
+             
+			 /*PosLetrasX[j] = posi;  //posici—nX
 			 PosLetrasY[j] = 0;     //posici—nY
-			 Velocidad[j] = rand()%100;   //velocidad de caida
-			 Velocidad[j]= Velocidad[j]/100 + 0.2;
+             randY = rand()%100; //velocidad de caida
+			 Velocidad[j]= randY/100 + 0.2;*/
 		 }
 	
 		 //Prepara Letra para ser un str
-		 Letra[1] = '\0';
+		 LetraArr[1] = '\0';
 	 }
 }
 
@@ -102,9 +118,22 @@ void testApp::update(){
 		
 		//Obtiene el valor de cada pixel en la coordenada de las letras para checar si aœn hay algunas bajando, cuenta cuantas est‡n hasta abajo ya
 		numLetrasAbajo = 0;
-		for (int j = 0; j < numLetras; j++)
+		for (int j = 0; j < numLetras - 1; j++)
 		{
-			if (PosLetrasY[j] < h)// + 10)
+            if(misLetra[j] -> retPosY() < h){
+                int posy = misLetra[j]->retPosY();
+                int posx = misLetra[j]->retPosX();
+                
+                if(pixels[(int)posy * w + posx] <255){
+                    misLetra[j]->bajar();
+                }else{
+                    misLetra[j]->subir();
+                }
+            }else{
+                numLetrasAbajo ++;
+            }
+        }
+			/*if (PosLetrasY[j] < h)// + 10)
 			{  //si aœn no llega hasta abajo
 				if (pixels[(int)PosLetrasY[j] * w + PosLetrasX[j]] < 255)
 				{ //Si la letra se encuentra en una zona color blanco significa que no debe continuar bajando
@@ -119,29 +148,12 @@ void testApp::update(){
 			{   //si la letra lleg— hasta abajo sumamos el nœmero de letras que han llegado
 				numLetrasAbajo++;
 			}
-		}
+		}*/
 		
 		//Si todas est‡n hasta abajo significa que hay que pasar al siguiente rengl—n del cuento
 		if (numLetrasAbajo == numLetras)
 		{
-            string str; ///declare a string for storage
-            getline(cuentoStream, str); ///get a line from the file, put it in the string
-			
-            int posi = 0;
-            for (int a=0;a<=str.size();a++) {
-                Letras[a]=str[a];
-				
-                if (Letras[a-1] == 'i' || Letras[a-1] == 'l' || Letras[a-1] == 'j' ) {
-                    posi = posi + 5;
-                } else {
-                    posi = posi + 10;
-                }
-                PosLetrasX[a] = posi;
-				
-                PosLetrasY[a] = 0;
-                Velocidad[a] = (rand()%100);
-                Velocidad[a]= Velocidad[a]/100 + 2;
-            }
+            nuevoRenglon();
 		}
 	}
 	sprintf(reportStr, "%s\nthreshold %i (presione +/-)\nfps: %f", infoArchivoStr, threshold, ofGetFrameRate());
@@ -166,15 +178,38 @@ void testApp::draw(){
 	//ciclo que recorre letra por letra y la dibuja en la posici—n en la que se encuentra.
     for (int j = 0; j < numLetras; j++)
 	{
-        Letra[0] = Letras[j];
-        franklinBook.drawString(Letra, posXfinal + PosLetrasX[j], posYfinal + PosLetrasY[j]);
+        char letra = misLetra[j]->retLetra();
+        LetraArr[0] = letra;
+        franklinBook.drawString(LetraArr, posXfinal + misLetra[j]->retPosX(), posYfinal + misLetra[j]->retPosY());
     }
 	
 	//muestra reporte:
 	ofSetHexColor(0xffffff);
 	ofDrawBitmapString(reportStr, 20, 600);	
 }
-
+//--------------------------------------------------------------
+void testApp::nuevoRenglon(){
+    misLetra.clear();
+    string str; ///declare a string for storage
+    getline(cuentoStream, str); ///get a line from the file, put it in the string
+    int posi = 0;
+    
+    for (int a=0;a<=str.size();a++) {
+        misLetra.push_back(new Letra(str[a]));
+        
+        char i = misLetra[a]->retLetra();
+        if(i == 'i'|| i == 'j' || i == 'l'){
+            posi = posi + 5;
+        }else{
+            posi = posi+10;
+        }
+        
+        misLetra[a] -> setPosX(posi);
+        misLetra[a] -> setPosY(0);
+        float randY = rand()%100;
+        misLetra[a] -> setVelY(randY/100+0.2);
+    }
+}
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
 
