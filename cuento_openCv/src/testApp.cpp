@@ -44,8 +44,8 @@ void testApp::setup(){
          
 		 for (int a=0;a<=str.size();a++)
 		 {
-			 //Letras[a]=str[a];
-             misLetra.push_back(new Letra(str[a]));
+             misLetra.push_back(new Letra());
+             misLetra[a]->letra = str[a];
 		 }
 
 		 //cuantas letras contiene el primer rengl—n?
@@ -58,7 +58,7 @@ void testApp::setup(){
 		 int posi = 0;
 		 for (int j = 0; j < numLetras-1; j++)
 		 {
-             char i = misLetra[j]->retLetra();
+             char i = misLetra[j]->letra;
              if(i == 'i'|| i == 'j' || i == 'l'){
                  posi = posi + 5;
              }else{
@@ -72,10 +72,10 @@ void testApp::setup(){
 			 {
 				 posi = posi + 10;
 			 }*/
-             misLetra[j] -> setPosX(posi);
-             misLetra[j] -> setPosY(0);
+             misLetra[j] -> posX = posi;
+             misLetra[j] -> posY = 0;
              float randY = rand()%100;
-             misLetra[j] -> setVelY(randY/100+2);
+             misLetra[j] -> velY=(randY/100+2);
              
 			 /*PosLetrasX[j] = posi;  //posici—nX
 			 PosLetrasY[j] = 0;     //posici—nY
@@ -120,9 +120,9 @@ void testApp::update(){
 		numLetrasAbajo = 0;
 		for (int j = 0; j < numLetras - 1; j++)
 		{
-            if(misLetra[j] -> retPosY() < h){
-                int posy = misLetra[j]->retPosY();
-                int posx = misLetra[j]->retPosX();
+            if(misLetra[j] -> posY < h){
+                int posy = misLetra[j]->posY;
+                int posx = misLetra[j]->posX;
                 
                 if(pixels[(int)posy * w + posx] <255){
                     misLetra[j]->bajar();
@@ -178,9 +178,9 @@ void testApp::draw(){
 	//ciclo que recorre letra por letra y la dibuja en la posici—n en la que se encuentra.
     for (int j = 0; j < numLetras; j++)
 	{
-        char letra = misLetra[j]->retLetra();
+        char letra = misLetra[j]->letra;
         LetraArr[0] = letra;
-        franklinBook.drawString(LetraArr, posXfinal + misLetra[j]->retPosX(), posYfinal + misLetra[j]->retPosY());
+        franklinBook.drawString(LetraArr, posXfinal + misLetra[j]->posX, posYfinal + misLetra[j]->posY);
     }
 	
 	//muestra reporte:
@@ -195,19 +195,20 @@ void testApp::nuevoRenglon(){
     int posi = 0;
     
     for (int a=0;a<=str.size();a++) {
-        misLetra.push_back(new Letra(str[a]));
+        misLetra.push_back(new Letra());
+        misLetra[a]->letra = str[a];
         
-        char i = misLetra[a]->retLetra();
+        char i = misLetra[a]->letra;
         if(i == 'i'|| i == 'j' || i == 'l'){
             posi = posi + 5;
         }else{
             posi = posi+10;
         }
         
-        misLetra[a] -> setPosX(posi);
-        misLetra[a] -> setPosY(0);
+        misLetra[a] -> posX = posi;
+        misLetra[a] -> posY = 0;
         float randY = rand()%100;
-        misLetra[a] -> setVelY(randY/100+0.2);
+        misLetra[a] -> velY = (randY/100+0.2);
     }
 }
 //--------------------------------------------------------------

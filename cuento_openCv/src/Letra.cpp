@@ -8,11 +8,11 @@
 
 #include "Letra.h"
 void Letra::bajar(){
-    _posY += _velY;
+    posY += velY;
 }
 
 void Letra::subir(){
-    _posY --;
+    posY --;
 }
 
 void Letra::stop(){
