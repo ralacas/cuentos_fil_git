@@ -15,6 +15,7 @@
 		78BDC66E157DE19900A2ABED /* ofxCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78BDC65A157DE19900A2ABED /* ofxCvHaarFinder.cpp */; };
 		78BDC66F157DE19900A2ABED /* ofxCvShortImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78BDC65D157DE19900A2ABED /* ofxCvShortImage.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
+		CC48139A158ACC380078DA5A /* Letra.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC481398158ACC380078DA5A /* Letra.cpp */; };
 		CCF4136A157EF4CE00255D27 /* cuentosReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCF41368157EF4CE00255D27 /* cuentosReader.cpp */; };
 		CCF41375157EF4E800255D27 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCF4136E157EF4E800255D27 /* tinyxml.cpp */; };
 		CCF41376157EF4E800255D27 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCF41370157EF4E800255D27 /* tinyxmlerror.cpp */; };
@@ -89,6 +90,8 @@
 		78BDC65F157DE19900A2ABED /* ofxOpenCv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxOpenCv.h; path = ../../../addons/ofxOpenCv/src/ofxOpenCv.h; sourceTree = SOURCE_ROOT; };
 		78BDC712157DEAC100A2ABED /* cuento1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cuento1.txt; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
+		CC481398158ACC380078DA5A /* Letra.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Letra.cpp; sourceTree = "<group>"; };
+		CC481399158ACC380078DA5A /* Letra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Letra.h; sourceTree = "<group>"; };
 		CCF41368157EF4CE00255D27 /* cuentosReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cuentosReader.cpp; sourceTree = "<group>"; };
 		CCF41369157EF4CE00255D27 /* cuentosReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cuentosReader.h; sourceTree = "<group>"; };
 		CCF4136C157EF4E800255D27 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
@@ -277,6 +280,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CC481398158ACC380078DA5A /* Letra.cpp */,
+				CC481399158ACC380078DA5A /* Letra.h */,
 				CCF41368157EF4CE00255D27 /* cuentosReader.cpp */,
 				CCF41369157EF4CE00255D27 /* cuentosReader.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
@@ -394,6 +399,7 @@
 				CCF41376157EF4E800255D27 /* tinyxmlerror.cpp in Sources */,
 				CCF41377157EF4E800255D27 /* tinyxmlparser.cpp in Sources */,
 				CCF41378157EF4E800255D27 /* ofxXmlSettings.cpp in Sources */,
+				CC48139A158ACC380078DA5A /* Letra.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
