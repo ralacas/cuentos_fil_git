@@ -9,22 +9,28 @@
 //  usarlos en el espacio
 //*/
 
+#ifndef cuento_openCv_cuentosReader_h
+#define cuento_openCv_cuentosReader_h
 #include "ofxXmlSettings.h"
+#include "ofMain.h"
 
 class cuentosReader : public ofBaseApp{
-    
-    ofxXmlSettings  cuentosXml;
+public:    
+    ofxXmlSettings cuentosXmlFile;
     string nombreDelCuento;
     bool endOfBook;
     int lineNumber;
     
-public:
+    //Constructor y destructor
+    cuentosReader(){};
+    ~cuentosReader();
     
     string getNombreDelCuento();
     void setNombreDelCuento();
     
     string getNextLine();
     bool isEndOfBook();
-    
     void setup();
 };
+
+#endif

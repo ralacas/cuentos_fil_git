@@ -1,8 +1,16 @@
+/* Changes
+ * @ralacas <15-jun-2012> Se agreg— lo referente al manejo del cuento en XML
+ *
+ *
+ */
+
 #pragma once
 
 #include "ofMain.h"
 #include "ofxOpenCv.h"
 #include "Letra.h"
+#include "cuentosReader.h"
+#include "ofxXmlSettings.h"
 #include <vector>
 
 using namespace std;
@@ -66,4 +74,8 @@ public:
     
     //variables de archivo con cuento
     ifstream cuentoStream; //declare a file stream
+    
+    //manejo del cuento xml @ralacas 15-jun-2012
+    ofxXmlSettings cuentosXml;
+    
 };

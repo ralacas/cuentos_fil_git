@@ -1,3 +1,9 @@
+/* Changes
+ * @ralacas <15-jun-2012> Se agreg— lo referente al manejo del cuento en XML
+ *
+ *
+ */
+
 #include "testApp.h"
 
 //--------------------------------------------------------------
@@ -27,6 +33,13 @@ void testApp::setup(){
 	//valor inicial, no sirve de nada.
 	numLetras = 0;
     
+    //Leemos el XML @ralacas
+    if (!cuentosXml.loadFile("cuentoSettings.xml"))
+    {
+        ofLogError("++++ No abrio el archivo XML con el cuento");
+        
+    }
+    
     
 	/// LECTURA DE ARCHIVO PARA CUENTO
     cuentoStream.open( ofToDataPath("cuento1.txt").c_str() ); //open your text file
@@ -40,7 +53,9 @@ void testApp::setup(){
         
         
         string str; //declare a string for storage
-        getline(cuentoStream, str); //get a line from the file, put it in the string
+        //getline(cuentoStream, str); //get a line from the file, put it in the string
+        
+        str = cuentosXml.getValue("cuento:linea","");
         
         for (int a=0;a<=str.size();a++)
         {
