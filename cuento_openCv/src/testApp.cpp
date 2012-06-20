@@ -34,11 +34,13 @@ void testApp::setup(){
 	numLetras = 0;
     
     //Leemos el XML @ralacas
+    cuentosXml.setup();
+    /*
     if (!cuentosXml.loadFile("cuentoSettings.xml"))
     {
         ofLogError("++++ No abrio el archivo XML con el cuento");
         
-    }
+    }*/
     
     
 	/// LECTURA DE ARCHIVO PARA CUENTO
@@ -55,7 +57,7 @@ void testApp::setup(){
         string str; //declare a string for storage
         //getline(cuentoStream, str); //get a line from the file, put it in the string
         
-        str = cuentosXml.getValue("cuento:linea","");
+        str = cuentosXml.getNextLine();
         
         for (int a=0;a<=str.size();a++)
         {

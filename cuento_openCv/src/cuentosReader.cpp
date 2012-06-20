@@ -7,42 +7,66 @@
 //
 
 #include "cuentosReader.h"
-ofxXmlSettings cuentosXmlFile;
 
-void setup()
+/*
+@ralacas 19-jun-2012
+Este archivo carga el cuento y establece los valores iniciales
+ TODO: deberìa aqui mejor usar el constructor. investigar
+*/
+void cuentosReader::setup()
 {
-    
-    if (cuentosXmlFile.loadFile("cuentoSettings.xml"))
-    {
-        ofLogError("++++ No abrio el archivo XML con el cuento");
-        
-    }
-}
-
-string getNombreDelCuento()
-{
-    
-}
-void setNombreDelCuento()
-{
-    
-}
-
-string getNextLine()
-{
-    ofxXmlSettings cuentosXmlFile;
     if (!cuentosXmlFile.loadFile("cuentoSettings.xml"))
     {
         ofLogError("++++ No abrio el archivo XML con el cuento");
-        
-    }else
+    }
+    else
     {
-        string lineToReturn;
-        lineToReturn = cuentosXmlFile.getValue("cuento:linea","");
-        return lineToReturn;
+        cuentosXmlFile.pushTag("cuento");
+        
+        numeroTotalDeLineas = cuentosXmlFile.getNumTags("linea");
+
+        nombreDelCuento = cuentosXmlFile.getValue("titulo","");
+        
+        actualLineNumber = cuentosXmlFile.getAttribute("linea","id",0);
+        
+        lineaActual = cuentosXmlFile.getValue("linea","",actualLineNumber);
+        
     }
 }
-bool isEndOfBook()
+
+/*
+ @ralacas 19-jun-2012
+ Aqui devolvemos el nombre del cuento
+ */
+string cuentosReader::getNombreDelCuento()
 {
+    return nombreDelCuento; 
+}
+
+/*
+ @ralacas 19-jun-2012
+ Devolvemos siempre la linea siguiente del cuento
+ */
+string cuentosReader::getNextLine()
+{
+    if(actualLineNumber < numeroTotalDeLineas)
+    {
+        lineaActual = cuentosXmlFile.getValue("linea","",actualLineNumber);
+        actualLineNumber ++;
+        return lineaActual;
+    }
+    else
+    {    
+        return lineaActual;
+    }
+}
+
+/*
+ @ralacas 19-jun-2012
+ Devuelve true si se alcanzo el final del cuento
+ */
+bool cuentosReader::isEndOfBook()
+{
+    return (actualLineNumber == numeroTotalDeLineas);
     
 }

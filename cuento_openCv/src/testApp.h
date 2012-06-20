@@ -75,7 +75,7 @@ public:
     //variables de archivo con cuento
     ifstream cuentoStream; //declare a file stream
     
-    //manejo del cuento xml @ralacas 15-jun-2012
-    ofxXmlSettings cuentosXml;
+    //@ralacas 15-jun-2012: manejo del cuento xml
+    cuentosReader cuentosXml;
     
 };
