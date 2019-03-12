@@ -5,3 +5,5 @@ Bugs:
 Pendientes:
 	Depuración de algoritmos
 	Clase que maneje imagenes
+	
+	Y miles de cosas mas que le fataron
